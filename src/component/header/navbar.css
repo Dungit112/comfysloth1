@@ -1,0 +1,9 @@
+.section {
+  width: 100%;
+  background-color: #eaded7;
+  height: 100%;
+  margin-top: 40px;
+}
+h2 {
+  text-align: left;
+}

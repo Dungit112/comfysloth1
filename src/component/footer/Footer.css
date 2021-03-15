@@ -1,0 +1,15 @@
+.footer {
+  background-color: #222;
+  color: white;
+  height: 100px;
+}
+span {
+  color: #ab7a5f;
+  margin: 0.1rem;
+  font-weight: 400;
+  text-transform: none;
+  line-height: 1.25;
+}
+h5 {
+  text-align: center;
+}
