@@ -7,3 +7,23 @@
 h2 {
   text-align: left;
 }
+
+.kGntgQ {
+  background: #eaded7;
+  width: 100%;
+  min-height: 20vh;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  color: #453227;
+}
+.kGntgQ a {
+  color: #795744;
+  padding: 0.5rem;
+  transition: all 0.3s linear;
+}
+
+
+a {
+  text-decoration: none;
+}

@@ -36,9 +36,11 @@ const navbar = () => {
           </form>
         </nav>
       </div>
-      <section className="section">
+      <section className="kGntgQ">
         <div className="container">
-          <h2>Home / Product</h2>
+          <h3>
+            <a href="/">Home </a>/ products
+          </h3>
         </div>
       </section>
     </div>
