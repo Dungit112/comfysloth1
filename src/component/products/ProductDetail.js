@@ -121,10 +121,9 @@ const ProductDetail = ({ match }) => {
             </section>
           </div>
         ) : (
-          <div>
-            {' '}
-            <h4>Loading</h4>{' '}
-          </div>
+          <div className="div-loader">
+          <div className="loader"></div>
+        </div>
         )}
       </div>
     </div>

@@ -22,4 +22,8 @@ export const selecttorAdd = createSelector(
   addCard,
   (addcard) => addcard
 );
-
+export const total = (state) => state.app.total;
+export const selecttorTotal = createSelector(
+  total,
+  (total) => total
+);

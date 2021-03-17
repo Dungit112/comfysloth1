@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './card.css';
-import { selecttorLoading, selecttorAdd } from '../../store/app/selector';
-import { decrement, increment } from '../../store/app/productsSlice';
+import { selecttorLoading, selecttorAdd,selecttorTotal } from '../../store/app/selector';
+import { decrement, increment,deleteProduct,deleteAll,totalPrice,cardIncrement,cardDecrement } from '../../store/app/productsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 const Card = () => {
   const dispatch = useDispatch();
   const cardProduct = useSelector(selecttorAdd);
+  const total = useSelector(selecttorTotal)
+  useEffect(() => {
+    dispatch(totalPrice());
+   
+  }, [cardProduct, dispatch]);
   console.log(cardProduct);
   return (
     <div className="container">
@@ -38,7 +43,7 @@ const Card = () => {
                 <div className="sc-jrAGrp dXWCyY amount-btns">
                   <button
                     type="button"
-                    onClick={() => dispatch(decrement(card.id))}
+                    onClick={() => dispatch(cardDecrement(card.id))}
                     className="amount-btn"
                   >
                     <svg
@@ -56,7 +61,7 @@ const Card = () => {
                   <h2 className="amount">{card.amount}</h2>
                   <button
                     type="button"
-                    onClick={() => dispatch(increment(card.id))}
+                    onClick={() => dispatch(cardIncrement(card.id))}
                     className="amount-btn"
                   >
                     <svg
@@ -72,8 +77,8 @@ const Card = () => {
                     </svg>
                   </button>
                 </div>
-                <h5 className="subtotal">$61.98</h5>
-                <button className="remove-btn">
+                <h5 className="subtotal">{card.amount * card.price}</h5>
+                <button  onClick={() => dispatch(deleteProduct(card.id))} className="remove-btn">
                   <svg
                     stroke="currentColor"
                     fill="currentColor"
@@ -97,7 +102,7 @@ const Card = () => {
             <Link className="link-btn" to="/">
               continue shopping
             </Link>
-            <button type="button" className="link-btn clear-btn">
+            <button onClick={() =>dispatch(deleteAll())} type="button" className="link-btn clear-btn">
               clear shopping cart
             </button>
           </div>
@@ -105,14 +110,14 @@ const Card = () => {
             <div>
               <article>
                 <h5>
-                  subtotal :<span>$61.98</span>
+                  subtotal :<span>{total}</span>
                 </h5>
                 <p>
                   shipping fee :<span>$5.34</span>
                 </p>
                 <hr />
                 <h4>
-                  order total :<span>$67.32</span>
+                  order total :<span>{total}</span>
                 </h4>
               </article>
               <button className="btn">login</button>

@@ -1,38 +1,44 @@
 import React from 'react';
 import './navbar.css';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 const navbar = () => {
   return (
+    <Router>
     <div>
       <div className="container">
         <nav className="navbar  navbar-expand-lg navbar-light bg-light ">
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav ">
               <li className="nav-item justify-content-center">
-                <a className="nav-link" href="a">
+                <Route>
+                <Link className="nav-link" to="/home">
                   Home
-                </a>
+                </Link>
+                </Route>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="a">
+                <Link className="nav-link" to="/about">
                   About
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="a">
+                <Route>
+                <Link path="/" className="nav-link" to="/">
                   Product
-                </a>
+                </Link>
+                </Route>
               </li>
             </ul>
           </div>
           <form className="d-flex">
             <i className="fas fa-user-plus"></i>
             <i className="fa fa-heart"></i>
-            <a className="navbar-brand" href="a">
-              CART{' '}
-            </a>
-            <a className="navbar-brand" href="a">
+            <Link className="navbar-brand" to="/cart">
+              CART
+            </Link>
+            <Link className="navbar-brand" to="a">
               Login
-            </a>
+            </Link>
           </form>
         </nav>
       </div>
@@ -44,6 +50,7 @@ const navbar = () => {
         </div>
       </section>
     </div>
+    </Router>
   );
 };
 

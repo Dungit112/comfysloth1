@@ -197,6 +197,7 @@ const Products = () => {
                   <div className="form-control shipping">
                     <h5>Free Shopping</h5>
                     <input
+                      className="checkbox"
                       type="checkbox"
                       checked={filter.isFilterFreeShopping}
                       onChange={(e) =>
@@ -224,11 +225,10 @@ const Products = () => {
                     image={j.image}
                   />
                 )) : (
-                  <div>
-                    <h4> Loading</h4>
+                  <div className="div-loader">
+                    <div className="loader"></div>
                   </div>
-                ) }
-                
+                ) }               
               </div>
             </section>
           </div>
