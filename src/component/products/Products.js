@@ -10,7 +10,7 @@ import ColorHelper from '../../helper/Color.helper';
 
 const Products = () => {
   const show = useSelector(selectProducts);
-  const [newState, setNewState] =useState();
+  const [newProduct, setNewProduct] = useState([]);
   const [filter, setFilter] = useState({
     searchText: '',
     filterCategory: 'all',
@@ -23,50 +23,77 @@ const Products = () => {
   const category = CategoryHelper();
   const color = ColorHelper();
   const dispatch = useDispatch();
+  const reset = (e) => {
+    setFilter({
+      searchText: '',
+      filterCategory: 'all',
+      filterCompany: 'all',
+      filterColor: 'all',
+      filterPrice: 309999,
+      isFilterFreeShopping: false,
+    })
+  }
   useEffect(() => {
     dispatch(fetchProduct());
-  }, [dispatch]);
-
-  useEffect(() => {
-    fillterAll()
-  },[filter])
-  
-
-  const fillterAll = (e) => {
     
-    let arrfilter =  show ? show : [];
+  }, [dispatch]);
  
-    if(filter.searchText) {
-      arrfilter = filter.searchText !=='' ? (arrfilter).filter((name) => name.name.toLowerCase().includes(filter.searchText.toLowerCase())) : arrfilter;
-      console.log("search", arrfilter)
+
+  
+  const fillterAll = (e) => {
+    let arrfilter = show ? show : [];
+
+    if (filter.searchText) {
+      arrfilter =
+        filter.searchText !== ''
+          ? arrfilter.filter((name) =>
+              name.name.toLowerCase().includes(filter.searchText.toLowerCase())
+            )
+          : arrfilter;
+     
     }
     if (filter.filterCategory) {
-      arrfilter = filter.filterCategory !== 'all' ? (arrfilter).filter((category) => category.category=== filter.filterCategory) : arrfilter;
-      console.log("category",arrfilter)
+      arrfilter =
+        filter.filterCategory !== 'all'
+          ? arrfilter.filter(
+              (category) => category.category === filter.filterCategory
+            )
+          : arrfilter;
+    
     }
-     if (filter.filterCompany) {
-      arrfilter = filter.filterCompany !=='all' ?(arrfilter).filter((com) => com.company=== filter.filterCompany) : arrfilter; 
-      console.log("company",arrfilter)
+    if (filter.filterCompany) {
+      arrfilter =
+        filter.filterCompany !== 'all'
+          ? arrfilter.filter((com) => com.company === filter.filterCompany)
+          : arrfilter;
+     
     }
-    if(filter.filterColor){
-      arrfilter = filter.filterColor !=='all' ?(arrfilter).filter((color) => color.colors[0]=== filter.filterColor) : arrfilter; 
-      console.log("color",arrfilter)
-    // }if(filter.filterPrice){
-    //   arrfilter = arrfilter.filter(price => price.price < filter.filterPrice )
-    //   console.log(arrfilter)
-    }if(filter.isFilterFreeShopping){
-    console.log(filter.isFilterFreeShopping)
-      arrfilter = filter.isFilterFreeShopping !==false ? arrfilter.filter(free => free.shipping) : arrfilter
-      // console.log("freee", arrfilter)
+    if (filter.filterColor) {
+      arrfilter =
+        filter.filterColor !== 'all'
+          ? arrfilter.filter((color) => color.colors[0] === filter.filterColor)
+          : arrfilter;
+      
     }
-    // console.log("the last",arrfilter)
-    return arrfilter;
+    if (filter.filterPrice) {
+      arrfilter = arrfilter.filter((price) => price.price < filter.filterPrice);
+      
+    }
+    if (filter.isFilterFreeShopping) {
+      console.log(filter.isFilterFreeShopping);
+      arrfilter = arrfilter.filter((free) => free.shipping)
+          
+     
+    }
+    setNewProduct(arrfilter)
+  
   };
-  let productArr = [];
   useEffect(() => {
-    productArr = fillterAll()
-
-  },[fillterAll, productArr, filter])
+    if(show.length>0){
+      setNewProduct([...show])
+    }
+    fillterAll()
+}, [filter,show]);
 
   return (
     <div className="container">
@@ -101,7 +128,6 @@ const Products = () => {
                               ...prev,
                               filterCategory: e.target.value,
                             }))
-                          
                           }
                           value={ct}
                           type="submit"
@@ -157,8 +183,8 @@ const Products = () => {
                     <br />
                     <input
                       type="range"
-                      minValue={0}
-                      maxValue={filter.filterPrice}
+                      max="309999"
+                      min="0"
                       value={filter.filterPrice}
                       onChange={(e) =>
                         setFilter((prev) => ({
@@ -172,32 +198,37 @@ const Products = () => {
                     <h5>Free Shopping</h5>
                     <input
                       type="checkbox"
-                      onClick={(e) =>
+                      checked={filter.isFilterFreeShopping}
+                      onChange={(e) =>
                         setFilter((prev) => ({
                           ...prev,
-                          isFilterFreeShopping: e.target.value,
+                          isFilterFreeShopping: !filter.isFilterFreeShopping,
                         }))
                       }
                     ></input>
                   </div>
                 </form>
-                <button type="button" className="clear-btn">
+                <button onClick={(e) =>reset(e)} type="button" className="clear-btn">
                   Clear Filters
                 </button>
               </div>
             </div>
             <section className="sc-crrsfI iDhzRL">
               <div className="products-container">
-              
-                  {show.map((j, index) => (
-                    <ProductsItem
-                      key={index}
-                      name={j.name}
-                      price={j.price}
-                      image={j.image}
-                    />
-                  ))}
-               
+                {(newProduct.length > 0 ) ? newProduct.map((j, index) => (
+                  <ProductsItem
+                    id={j.id}
+                    key={index}
+                    name={j.name}
+                    price={j.price}
+                    image={j.image}
+                  />
+                )) : (
+                  <div>
+                    <h4> Loading</h4>
+                  </div>
+                ) }
+                
               </div>
             </section>
           </div>
