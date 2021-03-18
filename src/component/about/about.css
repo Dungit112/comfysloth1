@@ -1,0 +1,48 @@
+@media (min-width: 992px)
+{
+.fTLfYv {
+    grid-template-columns: 1fr 1fr;
+}
+}
+
+.fTLfYv {
+    display: grid;
+    gap: 4rem;
+}
+.page {
+    min-height: calc(80vh - 10rem);
+}
+@media screen and (min-width: 992px)
+{
+.section-center {
+    width: 95vw;
+}}
+.fTLfYv img {
+    width: 100%;
+    display: block;
+    border-radius: 0.25rem;
+    height: 500px;
+    object-fit: cover;
+}
+article {
+    display: block;
+}
+.fTLfYv .underline {
+    margin-left: 0px;
+}
+.fTLfYv .title {
+    text-align: left;
+}
+
+.title .underline {
+    width: 6rem;
+    height: .25rem;
+    background: #ab7a5f;
+    margin-right: auto;
+}
+.fTLfYv p {
+    line-height: 2;
+    max-width: 45em;
+    margin: 2rem auto 0px;
+    color: #617d98;
+}

@@ -27,3 +27,25 @@ h2 {
 a {
   text-decoration: none;
 }
+.navbar-brand{
+  margin-right: 12px;
+  font-size: 26px;
+  letter-spacing: 5px;
+}
+.cart-value {
+  position: absolute;
+  top: 9px;
+  right: 127px;
+  background: #ab7a5f;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  color: #fff;
+  padding: 12px;
+}

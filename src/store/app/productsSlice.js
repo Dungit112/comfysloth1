@@ -20,7 +20,7 @@ export const productsSlice = createSlice({
     fetchProductId: () => {},
     setProductId: (state, action) => {
       const { payload } = action;
-      state.product = { ...payload, amount: 1 };
+      state.product = { ...payload, amount: 1, value:1 };
     },
     
     starLoading: (state) => {
@@ -33,6 +33,7 @@ export const productsSlice = createSlice({
     addToCard: (state, action) => {
       const { payload } = action;
       if (state.products.map((sp) => sp.id === payload)) {
+        
         state.addcard = [...state.addcard, state.product];
       }
     },

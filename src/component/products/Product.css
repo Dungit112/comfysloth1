@@ -229,3 +229,59 @@ footer p {
 a {
   text-decoration: none;
 }
+@media (min-width: 768px)
+{
+.ehfErK {
+    column-gap: 2rem;
+}
+}
+
+.ehfErK {
+    display: grid;
+    grid-template-columns: auto auto 1fr auto;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    column-gap: 2rem;
+}
+.ehfErK p {
+  text-transform: capitalize;
+  margin-bottom: 0px;
+}
+.ehfErK .sort-input {
+  border-color: transparent;
+  font-size: 1rem;
+  text-transform: capitalize;
+  padding: 0.25rem 0.5rem;
+}
+option {
+  font-weight: normal;
+  display: block;
+  white-space: nowrap;
+  min-height: 1.2em;
+  padding: 0px 2px 1px;
+}
+
+.button-sort2{
+  margin-right: 35px;
+}
+.button-sort1{
+  margin-right: 12px;
+}
+.ehfErK .btn-container button {
+  background: transparent;
+  border: 1px #222;
+  color: #222;
+  width: 1.5rem;
+  border-radius: 0.25rem;
+  height: 1.5rem;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.price-detail{
+  margin-right: 480px;
+}

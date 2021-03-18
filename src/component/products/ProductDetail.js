@@ -1,31 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './ProductDetails.css';
-import { fetchProductId,addToCard,decrement,increment } from '../../store/app/productsSlice';
+import { Link } from 'react-router-dom';
+import {
+  addToCard,
+  decrement, fetchProductId,
+
+
+  increment
+} from '../../store/app/productsSlice';
 import {
   selecttorLoading,
-  selecttorValueProduct,
+  selecttorValueProduct
 } from '../../store/app/selector';
-import { Link } from 'react-router-dom';
+import './ProductDetails.css';
 const ProductDetail = ({ match }) => {
   const url = match.params.id;
   const product = useSelector(selecttorValueProduct);
   const load = useSelector(selecttorLoading);
   const [imageCurrent, setImageCurrent] = useState();
   const dispatch = useDispatch();
-  console.log();
+  console.log(product);
   useEffect(() => {
     dispatch(fetchProductId(url));
   }, [dispatch, url]);
   useEffect(() => {
-    if( product && product.images && product.images.length > 0){
-      setImageCurrent(product.images[0].url)
+    if (product && product.images && product.images.length > 0) {
+      setImageCurrent(product.images[0].url);
     }
   }, [product, url]);
 
   return (
     <div className="section page">
- 
       <div className="container">
         <Link className="btn" to="/">
           back to products
@@ -33,15 +38,20 @@ const ProductDetail = ({ match }) => {
         {product && !load ? (
           <div className="product-center">
             <section className="sc-pFZIQ gbgfMs">
-              <img src={product.images ? imageCurrent : '' } alt="" className="main " />
+              <img
+                src={product.images ? imageCurrent : ''}
+                alt=""
+                className="main "
+              />
               <div className="gallery">
-                {(product.images || []).map((image,index) => (
+                {(product.images || []).map((image, index) => (
                   <img
-                  src={image.url}
-                  alt="ima"
-                  key={index} 
-                  onClick={() => setImageCurrent(image.url)}
-                  className="active" />
+                    src={image.url}
+                    alt="ima"
+                    key={index}
+                    onClick={() => setImageCurrent(image.url)}
+                    className="active"
+                  />
                 ))}
               </div>
             </section>
@@ -65,7 +75,7 @@ const ProductDetail = ({ match }) => {
                 </div>
                 <p className="reviews">({product.reviews} customer reviews)</p>
               </div>
-              <h5 className="price">{product.price}</h5>
+              <h5 className="price-detail">{product.price}</h5>
               <p className="desc">{product.description}</p>
               <p className="info">
                 <span>Available : </span>In stock
@@ -82,10 +92,18 @@ const ProductDetail = ({ match }) => {
               <section className="sc-kEjbxe jbJDWL">
                 <div className="colors">
                   <span> colors:</span>
+                {(product.colors||[]).map((color, index) =>(
+                   <button key={index} style={{ background: `${color}` }} className="color-btn"></button>
+                ))}
+                 
                 </div>
                 <div className="btn-container">
                   <div className="sc-jrAGrp dXWCyY amount-btns">
-                    <button type="button" onClick={() => dispatch(decrement())} className="amount-btn">
+                    <button
+                      type="button"
+                      onClick={() => dispatch(decrement())}
+                      className="amount-btn"
+                    >
                       <svg
                         stroke="currentColor"
                         fill="currentColor"
@@ -99,7 +117,11 @@ const ProductDetail = ({ match }) => {
                       </svg>
                     </button>
                     <h2 className="amount">{product.amount}</h2>
-                    <button  type="button" onClick={() => dispatch(increment())} className="amount-btn">
+                    <button
+                      type="button"
+                      onClick={() => dispatch(increment())}
+                      className="amount-btn"
+                    >
                       <svg
                         stroke="currentColor"
                         fill="currentColor"
@@ -112,7 +134,11 @@ const ProductDetail = ({ match }) => {
                         <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
                       </svg>
                     </button>
-                    <Link className="btn" to="/cart" onClick={() => dispatch(addToCard(product.id))} >
+                    <Link
+                      className="btn"
+                      to="/cart"
+                      onClick={() => dispatch(addToCard(product.id))}
+                    >
                       add to cart
                     </Link>
                   </div>
@@ -122,8 +148,8 @@ const ProductDetail = ({ match }) => {
           </div>
         ) : (
           <div className="div-loader">
-          <div className="loader"></div>
-        </div>
+            <div className="loader"></div>
+          </div>
         )}
       </div>
     </div>
