@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, current } from '@reduxjs/toolkit';
 
 export const productsSlice = createSlice({
   name: 'app',
@@ -6,68 +6,76 @@ export const productsSlice = createSlice({
     products: [],
     product: {},
     isloading: false,
-    addcard:[],
-    total:0
+    addcard: [],
+    total: 0,
+    
   },
 
   reducers: {
     fetchProduct: () => {},
     setProduct: (state, action) => {
-      state.products = [...action.payload];
+      const { payload } = action;
+      state.products = [...payload];
     },
     fetchProductId: () => {},
     setProductId: (state, action) => {
-      state.product = { ...action.payload, amount : 1 };
+      const { payload } = action;
+      state.product = { ...payload, amount: 1 };
     },
+    
     starLoading: (state) => {
-      state.isloading = true
+      state.isloading = true;
     },
-    endLoading:(state) =>{
-      state.isloading = false
+    endLoading: (state) => {
+      state.isloading = false;
     },
-    addToCard:(state,action) =>{
-      if(state.products.map(sp => sp.id===action.payload)){
-        state.addcard = [...state.addcard, state.product]
+
+    addToCard: (state, action) => {
+      const { payload } = action;
+      if (state.products.map((sp) => sp.id === payload)) {
+        state.addcard = [...state.addcard, state.product];
       }
     },
-    increment:(state) =>{
-      if(state.product.amount < state.product.stock){
-      state.product.amount++
+    increment: (state) => {
+      if (state.product.amount < state.product.stock) {
+        state.product.amount++;
       }
     },
-    decrement:(state) =>{
+    decrement: (state) => {
       if (state.product.amount > 0) {
-      state.product.amount--
+        state.product.amount--;
       }
-      return
+      return;
     },
-     deleteProduct: (state, action) => {
+    deleteProduct: (state, action) => {
       const { payload } = action;
       state.addcard = state.addcard.filter((ft) => ft.id !== payload);
     },
     deleteAll: (state) => {
       state.addcard = [];
     },
-    totalPrice: (state) =>{
+    totalPrice: (state) => {
+      state.total = 0
       state.addcard.map(
         (product) => (state.total += product.amount * product.price)
-      )
+      );
+      console.log(current (state.addcard))
     },
     cardIncrement: (state, action) => {
       const { payload } = action;
-      state.addcard.map((prod) =>
-        prod.id === payload && prod.amount <= prod.stock
-          ? (prod.amount += 1)
-          : prod.amount
+      state.addcard.map((inc) =>
+        inc.id === payload && inc.amount <= inc.stock
+          ? inc.amount++
+          : inc.amount
       );
     },
     cardDecrement: (state, action) => {
       const { payload } = action;
-      state.addcard.map((prod) => {
-        if (prod.id === payload && prod.amount > 0) {
-          return (prod.amount -= 1);
+      state.addcard.map((dec) => {
+        if (dec.id === payload && dec.amount > 0) {
+          return dec.amount--;
         }
-        return prod.amount;
+        return dec.amount;
       });
     },
   },
@@ -79,13 +87,15 @@ export const {
   fetchProductId,
   setProductId,
   starLoading,
-  endLoading,addToCard,
+  endLoading,
+  addToCard,
   increment,
   decrement,
   deleteProduct,
   deleteAll,
   totalPrice,
   cardIncrement,
-  cardDecrement
+  cardDecrement,
+  
 } = productsSlice.actions;
 export default productsSlice.reducer;

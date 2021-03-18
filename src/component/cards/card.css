@@ -138,6 +138,7 @@ h1, h2, h3, h4, h5 {
     letter-spacing: 0.1rem;
     text-transform: capitalize;
     margin-bottom: 0px;
+    margin-left: 28px;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
@@ -344,4 +345,8 @@ p {
     margin-top: 1rem;
     text-align: center;
     font-weight: 700;
+}
+h1{
+    text-align: center;
+    margin: 15px ;
 }

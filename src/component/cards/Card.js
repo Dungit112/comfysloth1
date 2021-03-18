@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import './card.css';
-import { selecttorLoading, selecttorAdd,selecttorTotal } from '../../store/app/selector';
-import { decrement, increment,deleteProduct,deleteAll,totalPrice,cardIncrement,cardDecrement } from '../../store/app/productsSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { cardDecrement, cardIncrement, deleteAll, deleteProduct, totalPrice } from '../../store/app/productsSlice';
+import { selecttorAdd, selecttorTotal } from '../../store/app/selector';
+import './card.css';
 const Card = () => {
   const dispatch = useDispatch();
   const cardProduct = useSelector(selecttorAdd);
   const total = useSelector(selecttorTotal)
   useEffect(() => {
     dispatch(totalPrice());
-   
+  
   }, [cardProduct, dispatch]);
-  console.log(cardProduct);
+  console.log(total);
   return (
     <div className="container">
       <div className="sc-fKFyDc nwOmR page">
@@ -94,7 +94,7 @@ const Card = () => {
               </article>
             ))
           ) : (
-            <div> Card is empty </div>
+            <div> <h1>Cart is empty</h1> </div>
           )}
 
           <hr />
