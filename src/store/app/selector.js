@@ -13,17 +13,8 @@ export const selecttorValueProduct = createSelector(
 );
 
 export const sLoading = (state) => state.app.isloading;
-export const selecttorLoading = createSelector(
-  sLoading,
-  (l) => l
-);
+export const selecttorLoading = createSelector(sLoading, (l) => l);
 export const addCard = (state) => state.app.addcard;
-export const selecttorAdd = createSelector(
-  addCard,
-  (addcard) => addcard
-);
+export const selecttorAdd = createSelector(addCard, (addcard) => addcard);
 export const total = (state) => state.app.total;
-export const selecttorTotal = createSelector(
-  total,
-  (total) => total
-);
+export const selecttorTotal = createSelector(total, (total) => total);

@@ -23,11 +23,10 @@ h2 {
   transition: all 0.3s linear;
 }
 
-
 a {
   text-decoration: none;
 }
-.navbar-brand{
+.navbar-brand {
   margin-right: 12px;
   font-size: 26px;
   letter-spacing: 5px;

@@ -1,70 +1,68 @@
 .page {
-    min-height: calc(80vh - 10rem);
+  min-height: calc(80vh - 10rem);
 }
 .section-center {
-    width: 90vw;
-    margin: 0 auto;
-    max-width: 1170px;
-    max-width: 1170px;
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  max-width: 1170px;
 }
 
 .section {
-    padding: 5rem 0;
+  padding: 5rem 0;
 }
-@media (min-width: 776px)
-{
-.dWjUC {
+@media (min-width: 776px) {
+  .dWjUC {
     display: block;
-}
+  }
 }
 
 .dWjUC {
-    margin-top: 10px;
-    border-bottom: 1px solid grey;
+  margin-top: 10px;
+  border-bottom: 1px solid grey;
 }
-@media (min-width: 776px)
-{
-.dWjUC .content {
+@media (min-width: 776px) {
+  .dWjUC .content {
     display: grid;
     grid-template-columns: 218px 1fr 1fr 1fr auto;
     justify-items: center;
     column-gap: 12rem;
+  }
 }
-}
-@media (min-width: 776px)
-{
-.dWjUC .content h5 {
+@media (min-width: 776px) {
+  .dWjUC .content h5 {
     color: #617d98;
     font-weight: 400;
-}
+  }
 }
 
-@media screen and (min-width: 800px)
-{
-h5 {
+@media screen and (min-width: 800px) {
+  h5 {
     font-size: 1rem;
-}
+  }
 }
 h5 {
-    font-size: .875rem;
+  font-size: 0.875rem;
 }
-h1, h2, h3, h4, h5 {
-    letter-spacing: .1rem;
-    letter-spacing: 0.1rem;
-    text-transform: capitalize;
-    line-height: 1.25;
-    margin-bottom: .75rem;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  letter-spacing: 0.1rem;
+  letter-spacing: 0.1rem;
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
 }
-@media (min-width: 776px)
-{
-.dWjUC span {
+@media (min-width: 776px) {
+  .dWjUC span {
     width: 2rem;
     height: 2rem;
+  }
 }
-}
-@media (min-width: 776px)
-{
-.cYLuAZ {
+@media (min-width: 776px) {
+  .cYLuAZ {
     grid-template-columns: 1fr 1fr 1fr 1fr auto;
     -webkit-box-align: center;
     align-items: center;
@@ -73,11 +71,10 @@ h1, h2, h3, h4, h5 {
     display: flex;
     justify-content: space-between;
     margin-top: 16px;
+  }
 }
-}
-@media (min-width: 776px)
-{
-.cYLuAZ .title {
+@media (min-width: 776px) {
+  .cYLuAZ .title {
     height: 100%;
     display: grid;
     grid-template-columns: 100px 200px;
@@ -85,268 +82,256 @@ h1, h2, h3, h4, h5 {
     align-items: center;
     gap: 1rem;
     text-align: left;
-}
+  }
 }
 .cYLuAZ .title {
-    grid-template-rows: 75px;
-    display: grid;
-    grid-template-columns: 75px 125px;
-    -webkit-box-align: center;
-    align-items: center;
-    text-align: left;
-    gap: 1rem;
+  grid-template-rows: 75px;
+  display: grid;
+  grid-template-columns: 75px 125px;
+  -webkit-box-align: center;
+  align-items: center;
+  text-align: left;
+  gap: 1rem;
 }
-@media (min-width: 776px)
-{
-.cYLuAZ .price {
+@media (min-width: 776px) {
+  .cYLuAZ .price {
     display: block;
     font-size: 1rem;
     color: #ab7a5f;
     font-weight: 400;
+  }
 }
-}
-@media (min-width: 776px)
-{
-.cYLuAZ img {
+@media (min-width: 776px) {
+  .cYLuAZ img {
     height: 100%;
-}
+  }
 }
 
-
 .cYLuAZ img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    border-radius: 0.25rem;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 0.25rem;
+  object-fit: cover;
 }
-@media (min-width: 776px)
-{
-.cYLuAZ .name {
+@media (min-width: 776px) {
+  .cYLuAZ .name {
     font-size: 0.85rem;
+  }
 }
-}
-@media (min-width: 776px)
-{
-.cYLuAZ .color {
+@media (min-width: 776px) {
+  .cYLuAZ .color {
     font-size: 0.85rem;
-}
+  }
 }
 .cYLuAZ .color {
-    color: #617d98;
-    font-size: 0.75rem;
-    letter-spacing: 0.1rem;
-    text-transform: capitalize;
-    margin-bottom: 0px;
-    margin-left: 28px;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: start;
-    justify-content: flex-start;
+  color: #617d98;
+  font-size: 0.75rem;
+  letter-spacing: 0.1rem;
+  text-transform: capitalize;
+  margin-bottom: 0px;
+  margin-left: 28px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
 }
-@media (min-width: 776px)
-{
-.cYLuAZ .color span {
+@media (min-width: 776px) {
+  .cYLuAZ .color span {
     width: 0.75rem;
     height: 0.75rem;
-}
+  }
 }
 
 .cYLuAZ .color span {
-    display: inline-block;
-    width: 0.5rem;
-    height: 0.5rem;
-    background: red;
-    margin-left: 0.5rem;
-    border-radius: 0.25rem;
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: red;
+  margin-left: 0.5rem;
+  border-radius: 0.25rem;
 }
-@media (min-width: 776px)
-{
-.cYLuAZ .amount-btns {
+@media (min-width: 776px) {
+  .cYLuAZ .amount-btns {
     width: 100px;
-}
+  }
 }
 .cYLuAZ .amount-btns {
-    width: 75px;
+  width: 75px;
 }
 
 .dXWCyY {
-    display: grid;
-    width: 140px;
-    place-items: center;
-    grid-template-columns: repeat(3, 1fr);
-    -webkit-box-align: center;
+  display: grid;
+  width: 140px;
+  place-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  -webkit-box-align: center;
 }
-@media (min-width: 776px)
-{
-.cYLuAZ .amount-btns {
+@media (min-width: 776px) {
+  .cYLuAZ .amount-btns {
     width: 100px;
+  }
 }
-}
-
 
 .cYLuAZ .amount-btns {
-    width: 75px;
+  width: 75px;
 }
 
 .dXWCyY {
-    display: grid;
-    width: 140px;
-    place-items: center;
-    grid-template-columns: repeat(3, 1fr);
-    -webkit-box-align: center;
+  display: grid;
+  width: 140px;
+  place-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  -webkit-box-align: center;
 }
-@media (min-width: 776px)
-{
-.cYLuAZ .amount-btns button {
+@media (min-width: 776px) {
+  .cYLuAZ .amount-btns button {
     width: 1.5rem;
     height: 1rem;
     font-size: 1rem;
-}
+  }
 }
 
 .cYLuAZ .amount-btns button {
-    width: 1rem;
-    height: 0.5rem;
-    font-size: 0.75rem;
+  width: 1rem;
+  height: 0.5rem;
+  font-size: 0.75rem;
 }
 
 .dXWCyY button {
-    background: transparent;
-    border-color: transparent;
-    cursor: pointer;
-    padding: 1rem 0px;
-    width: 2rem;
-    height: 1rem;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
+  background: transparent;
+  border-color: transparent;
+  cursor: pointer;
+  padding: 1rem 0px;
+  width: 2rem;
+  height: 1rem;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
 }
-@media (min-width: 776px)
-{
-.cYLuAZ .amount-btns h2 {
+@media (min-width: 776px) {
+  .cYLuAZ .amount-btns h2 {
     font-size: 1.5rem;
-}
+  }
 }
 .cYLuAZ .amount-btns h2 {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 .dXWCyY h2 {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
-@media (min-width: 776px)
-{
-.cYLuAZ .subtotal {
+@media (min-width: 776px) {
+  .cYLuAZ .subtotal {
     display: block;
     margin-bottom: 0px;
     color: #617d98;
     font-weight: 400;
     font-size: 1rem;
-}}
+  }
+}
 .cYLuAZ .remove-btn {
-    color: #fff;
-    border: transparent;
-    letter-spacing: 0.1rem;
-    background: #bb2525;
-    width: 1.5rem;
-    height: 1.5rem;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-    border-radius: 0.25rem;
-    font-size: 0.75rem;
-    cursor: pointer;
+  color: #fff;
+  border: transparent;
+  letter-spacing: 0.1rem;
+  background: #bb2525;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  cursor: pointer;
 }
 .cSnsVU .link-container {
-    display: flex;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    margin-top: 2rem;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  margin-top: 2rem;
 }
 .cSnsVU .link-btn {
-    border-color: transparent;
-    text-transform: capitalize;
-    padding: 0.25rem 0.5rem;
-    background: #ab7a5f;
-    color: #fff;
-    border-radius: 0.25rem;
-    letter-spacing: 0.1rem;
-    font-weight: 400;
-    cursor: pointer;
+  border-color: transparent;
+  text-transform: capitalize;
+  padding: 0.25rem 0.5rem;
+  background: #ab7a5f;
+  color: #fff;
+  border-radius: 0.25rem;
+  letter-spacing: 0.1rem;
+  font-weight: 400;
+  cursor: pointer;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 .cSnsVU .clear-btn {
-    background: #222;
+  background: #222;
 }
 
 .cSnsVU .link-btn {
-    border-color: transparent;
-    text-transform: capitalize;
-    padding: 0.25rem 0.5rem;
-    color: #fff;
-    border-radius: 0.25rem;
-    letter-spacing: 0.1rem;
-    font-weight: 400;
-    cursor: pointer;
+  border-color: transparent;
+  text-transform: capitalize;
+  padding: 0.25rem 0.5rem;
+  color: #fff;
+  border-radius: 0.25rem;
+  letter-spacing: 0.1rem;
+  font-weight: 400;
+  cursor: pointer;
 }
-@media (min-width: 776px)
-{
-.bjNVbG {
+@media (min-width: 776px) {
+  .bjNVbG {
     -webkit-box-pack: end;
     justify-content: flex-end;
-}
+  }
 }
 .bjNVbG {
-    margin-top: 3rem;
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
+  margin-top: 3rem;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
 }
 .bjNVbG article {
-    border: 1px solid #bcccdc;
-    border-radius: 0.25rem;
-    padding: 1.5rem 3rem;
+  border: 1px solid #bcccdc;
+  border-radius: 0.25rem;
+  padding: 1.5rem 3rem;
 }
 .bjNVbG h5 p {
-    display: grid;
-    grid-template-columns: 200px 1fr;
+  display: grid;
+  grid-template-columns: 200px 1fr;
 }
 .bjNVbG p {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 
 .bjNVbG p {
-    display: grid;
-    grid-template-columns: 200px 1fr;
+  display: grid;
+  grid-template-columns: 200px 1fr;
 }
 p {
-    margin-bottom: 1.25rem;
-    color: #324d67;
-    color: #324d67;
+  margin-bottom: 1.25rem;
+  color: #324d67;
+  color: #324d67;
 }
 .bjNVbG h4 {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .bjNVbG h4 {
-    display: grid;
-    grid-template-columns: 200px 1fr;
+  display: grid;
+  grid-template-columns: 200px 1fr;
 }
 .bjNVbG .btn {
-    width: 100%;
-    margin-top: 1rem;
-    text-align: center;
-    font-weight: 700;
+  width: 100%;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 700;
 }
-h1{
-    text-align: center;
-    margin: 15px ;
+h1 {
+  text-align: center;
+  margin: 15px;
 }

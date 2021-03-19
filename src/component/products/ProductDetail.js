@@ -138,7 +138,7 @@ const ProductDetail = ({ match }) => {
                     <Link
                       className="btn"
                       to="/cart"
-                      onClick={() => dispatch(addToCard(product.id))}
+                      onClick={() => dispatch(addToCard(product))}
                     >
                       add to cart
                     </Link>

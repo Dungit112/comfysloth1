@@ -31,14 +31,16 @@ export const productsSlice = createSlice({
       state.isloading = false;
     },
 
-    addToCard: (state, action) => {
-      // const { payload } = action;
-
-      // if (state.addcard.filter((sp) => sp.id === payload)) {
-      //     state.addcard = [...state.addcard, state.product.amount += state.product.amount];
-      //   }else{
-      state.addcard = [...state.addcard, state.product];
-      // }
+    addToCard: (state, { payload }) => {
+      if (state.addcard.map((item) => item.id).includes(payload.id)) {
+        state.addcard.forEach((item) => {
+          if (item.id === payload.id) {
+            item.amount += payload.amount;
+          }
+        });
+      } else {
+        state.addcard.push(payload);
+      }
     },
     increment: (state) => {
       if (state.product.amount <= state.product.stock) {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CategoryHelper from '../../helper/Category.helper';
 import ColorHelper from '../../helper/Color.helper';
@@ -39,7 +39,7 @@ const Products = () => {
     dispatch(fetchProduct());
   }, [dispatch]);
 
-  const fillterAll = (e) => {
+  const filterAll = useCallback(() => {
     let arrfilter = show ? show : [];
 
     if (filter.searchText) {
@@ -74,11 +74,9 @@ const Products = () => {
       arrfilter = arrfilter.filter((price) => price.price < filter.filterPrice);
     }
     if (filter.isFilterFreeShopping) {
-      console.log(filter.isFilterFreeShopping);
       arrfilter = arrfilter.filter((free) => free.shipping);
     }
     if (filter.sortBy) {
-      console.log('aa', arrfilter);
       if (filter.sortBy === 'price-lowest') {
         arrfilter = arrfilter.sort((a, b) => a.price - b.price);
       } else if (filter.sortBy === 'price-highest') {
@@ -91,13 +89,13 @@ const Products = () => {
     }
 
     setNewProduct(arrfilter);
-  };
+  }, [filter, show]);
   useEffect(() => {
     if (show.length > 0) {
       setNewProduct([...show]);
     }
-    fillterAll();
-  }, [filter, show]);
+    filterAll();
+  }, [filter, show, filterAll]);
 
   return (
     <div className="container">

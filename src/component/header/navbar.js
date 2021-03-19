@@ -1,8 +1,8 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { selecttorAdd } from '../../store/app/selector';
-import './navbar.css';
+import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { selecttorAdd } from "../../store/app/selector";
+import "./navbar.css";
 const Navbar = () => {
   const card = useSelector(selecttorAdd);
   return (

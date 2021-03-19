@@ -1,10 +1,13 @@
-import React from 'react';
-import './about.css'
+import React from "react";
+import "./about.css";
 const About = () => {
   return (
     <div>
       <section className="sc-kfzAmx fTLfYv page section section-center">
-        <img src="https://react-course-comfy-sloth-store.netlify.app/static/media/hero-bcg.a876f19f.jpeg" alt="nice desk" />
+        <img
+          src="https://react-course-comfy-sloth-store.netlify.app/static/media/hero-bcg.a876f19f.jpeg"
+          alt="nice desk"
+        />
         <article>
           <div className="title">
             <h2>our story</h2>
