@@ -8,7 +8,7 @@ const ProductsItem = (props) => {
   return (
     <article>
       <div className="containerss" key={id}>
-        <img src={image} alt={name}></img>
+        <img className="hover" src={image} alt={name}></img>
         <Link to={`/product/${id}`} className="link">
           <svg
             stroke="currentColor"
