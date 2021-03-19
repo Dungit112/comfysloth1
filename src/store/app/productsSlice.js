@@ -1,4 +1,4 @@
-import { createSlice, current } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 export const productsSlice = createSlice({
   name: 'app',
@@ -6,9 +6,10 @@ export const productsSlice = createSlice({
     products: [],
     product: {},
     isloading: false,
-    addcard: [],
+    addcard: JSON.parse(window.localStorage.getItem('products'))
+      ? JSON.parse(window.localStorage.getItem('products'))
+      : [],
     total: 0,
-    
   },
 
   reducers: {
@@ -20,9 +21,9 @@ export const productsSlice = createSlice({
     fetchProductId: () => {},
     setProductId: (state, action) => {
       const { payload } = action;
-      state.product = { ...payload, amount: 1, value:1 };
+      state.product = { ...payload, amount: 1 };
     },
-    
+
     starLoading: (state) => {
       state.isloading = true;
     },
@@ -31,14 +32,16 @@ export const productsSlice = createSlice({
     },
 
     addToCard: (state, action) => {
-      const { payload } = action;
-      if (state.products.map((sp) => sp.id === payload)) {
-        
-        state.addcard = [...state.addcard, state.product];
-      }
+      // const { payload } = action;
+
+      // if (state.addcard.filter((sp) => sp.id === payload)) {
+      //     state.addcard = [...state.addcard, state.product.amount += state.product.amount];
+      //   }else{
+      state.addcard = [...state.addcard, state.product];
+      // }
     },
     increment: (state) => {
-      if (state.product.amount < state.product.stock) {
+      if (state.product.amount <= state.product.stock) {
         state.product.amount++;
       }
     },
@@ -56,11 +59,10 @@ export const productsSlice = createSlice({
       state.addcard = [];
     },
     totalPrice: (state) => {
-      state.total = 0
+      state.total = 0;
       state.addcard.map(
         (product) => (state.total += product.amount * product.price)
       );
-      console.log(current (state.addcard))
     },
     cardIncrement: (state, action) => {
       const { payload } = action;
@@ -73,7 +75,7 @@ export const productsSlice = createSlice({
     cardDecrement: (state, action) => {
       const { payload } = action;
       state.addcard.map((dec) => {
-        if (dec.id === payload && dec.amount > 0) {
+        if (dec.id === payload && dec.amount > 1) {
           return dec.amount--;
         }
         return dec.amount;
@@ -97,6 +99,5 @@ export const {
   totalPrice,
   cardIncrement,
   cardDecrement,
-  
 } = productsSlice.actions;
 export default productsSlice.reducer;

@@ -3,14 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
   addToCard,
-  decrement, fetchProductId,
-
-
-  increment
+  decrement,
+  fetchProductId,
+  increment,
 } from '../../store/app/productsSlice';
 import {
   selecttorLoading,
-  selecttorValueProduct
+  selecttorValueProduct,
 } from '../../store/app/selector';
 import './ProductDetails.css';
 const ProductDetail = ({ match }) => {
@@ -19,7 +18,6 @@ const ProductDetail = ({ match }) => {
   const load = useSelector(selecttorLoading);
   const [imageCurrent, setImageCurrent] = useState();
   const dispatch = useDispatch();
-  console.log(product);
   useEffect(() => {
     dispatch(fetchProductId(url));
   }, [dispatch, url]);
@@ -92,10 +90,13 @@ const ProductDetail = ({ match }) => {
               <section className="sc-kEjbxe jbJDWL">
                 <div className="colors">
                   <span> colors:</span>
-                {(product.colors||[]).map((color, index) =>(
-                   <button key={index} style={{ background: `${color}` }} className="color-btn"></button>
-                ))}
-                 
+                  {(product.colors || []).map((color, index) => (
+                    <button
+                      key={index}
+                      style={{ background: `${color}` }}
+                      className="color-btn"
+                    ></button>
+                  ))}
                 </div>
                 <div className="btn-container">
                   <div className="sc-jrAGrp dXWCyY amount-btns">

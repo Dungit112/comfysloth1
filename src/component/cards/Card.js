@@ -1,18 +1,29 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { cardDecrement, cardIncrement, deleteAll, deleteProduct, totalPrice } from '../../store/app/productsSlice';
+import {
+  cardDecrement,
+  cardIncrement,
+  deleteAll,
+  deleteProduct,
+  totalPrice,
+} from '../../store/app/productsSlice';
 import { selecttorAdd, selecttorTotal } from '../../store/app/selector';
+import useLocalStorage from 'react-use-localstorage';
 import './card.css';
 const Card = () => {
   const dispatch = useDispatch();
   const cardProduct = useSelector(selecttorAdd);
-  const total = useSelector(selecttorTotal)
+
+  const total = useSelector(selecttorTotal);
+  const [localCard, setLocalCard] = useLocalStorage('products', []);
   useEffect(() => {
     dispatch(totalPrice());
-  
   }, [cardProduct, dispatch]);
-  console.log(total);
+  useEffect(() => {
+    setLocalCard(JSON.stringify(cardProduct));
+  }, [total, localCard, cardProduct, setLocalCard]);
+
   return (
     <div className="container">
       <div className="sc-fKFyDc nwOmR page">
@@ -27,8 +38,8 @@ const Card = () => {
             </div>
           </div>
           {cardProduct.length > 0 ? (
-            cardProduct.map((card) => (
-              <article key={card.id} className="sc-fodVxV cYLuAZ">
+            cardProduct.map((card, index) => (
+              <article key={index} className="sc-fodVxV cYLuAZ">
                 <div className="title">
                   <img src={card.images[0].url} alt={card.name} />
                   <div>
@@ -78,7 +89,10 @@ const Card = () => {
                   </button>
                 </div>
                 <h5 className="subtotal">{card.amount * card.price}</h5>
-                <button  onClick={() => dispatch(deleteProduct(card.id))} className="remove-btn">
+                <button
+                  onClick={() => dispatch(deleteProduct(card.id))}
+                  className="remove-btn"
+                >
                   <svg
                     stroke="currentColor"
                     fill="currentColor"
@@ -94,7 +108,10 @@ const Card = () => {
               </article>
             ))
           ) : (
-            <div> <h1>Cart is empty</h1> </div>
+            <div>
+              {' '}
+              <h1>Cart is empty</h1>{' '}
+            </div>
           )}
 
           <hr />
@@ -102,7 +119,11 @@ const Card = () => {
             <Link className="link-btn" to="/">
               continue shopping
             </Link>
-            <button onClick={() =>dispatch(deleteAll())} type="button" className="link-btn clear-btn">
+            <button
+              onClick={() => dispatch(deleteAll())}
+              type="button"
+              className="link-btn clear-btn"
+            >
               clear shopping cart
             </button>
           </div>

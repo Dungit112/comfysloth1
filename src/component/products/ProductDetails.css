@@ -97,7 +97,7 @@
   margin-top: 2rem;
 }
 .jbJDWL .colors {
-  display: grid;
+  display: flex;
   grid-template-columns: 125px 1fr;
   -webkit-box-align: center;
   align-items: center;
@@ -178,4 +178,5 @@
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
+    margin-left: 7px;
 }

@@ -4,11 +4,12 @@ import CategoryHelper from '../../helper/Category.helper';
 import ColorHelper from '../../helper/Color.helper';
 import CompanyHelper from '../../helper/Company.helper';
 import { fetchProduct } from '../../store/app/productsSlice';
-import { selectProducts } from '../../store/app/selector';
+import { selectProducts, selecttorLoading } from '../../store/app/selector';
 import './Product.css';
 import ProductsItem from './ProductsItem';
 const Products = () => {
   const show = useSelector(selectProducts);
+  const isLoading = useSelector(selecttorLoading);
   // const currentFormat = CurrentFormat()
   const [newProduct, setNewProduct] = useState([]);
   const [filter, setFilter] = useState({
@@ -283,7 +284,11 @@ const Products = () => {
                 </div>
               </section>
               <div className="products-container">
-                {newProduct.length > 0 ? (
+                {isLoading === true ? (
+                  <div className="div-loader">
+                    <div className="loader"></div>
+                  </div>
+                ) : newProduct.length > 0 ? (
                   newProduct.map((j, index) => (
                     <ProductsItem
                       id={j.id}
@@ -294,8 +299,8 @@ const Products = () => {
                     />
                   ))
                 ) : (
-                  <div className="div-loader">
-                    <div className="loader"></div>
+                  <div>
+                    <h1>Not Product</h1>
                   </div>
                 )}
               </div>
